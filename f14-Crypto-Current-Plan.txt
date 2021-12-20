@@ -1,0 +1,73 @@
+﻿Crypto Current
+
+
+MVP Features;
+* User can sign up/sign in to their account
+* User can search for Cryptocurrencies/news of
+* User Can Add Cryptocurrency to their portfolio
+* User can make post about cryptocurrency
+
+
+Points Total: What I’m going for;
+* project includes a wireframe for each view
+* project includes a list of MVP features *
+* project includes a data model
+* * app has at least 3 main features *
+* front end makes a request to the server and handles the response *
+* front end is interactive *
+* app has custom styling *
+* * app has at least 5 semantic tags *
+* app includes 1 view *
+* app includes 1+ additional view(s)
+* styling includes flexbox
+* at least 1 view is responsive
+* * app includes a GET endpoint and handler function *
+* app includes a POST endpoint and handler function *
+* app includes a PUT endpoint and handler function
+* app includes a DELETE endpoint and handler function
+* app utilizes Sequelize
+* project includes at least 1 controller file
+* * project includes a seed file or function
+* app uses 1 table
+* app uses 1+ additional tables
+* app uses a foreign key and join
+* * discusses project purpose and demonstrates MVP *
+* does not discuss broken/unimplemented features
+* recording is between 2-3 minutes
+I’m going for all of these points.
+
+
+
+
+To Do List;
+
+
+MVP
+* Wireframe - As much as possible
+* Data Model - Be thorough
+* Make and Deploy basic frontend to Heroku (html, css)
+   * Add buttons and Classes for styling
+   * Make Pages connect to each other (follow flow from wireframe)
+* Add Functionality to the deployment, 3 main features
+
+
+Full Project;
+* MVP made
+* Build Full REST API 
+   * Users
+      * Register and Login        
+      * Update user
+      * Delete user
+      * Get user
+      * Follow/Unfollow
+* Posts
+   * Create Post about certain crypto
+   * Update Post
+   * Delete Post
+   * Like/Dislike
+   * Get all timeline posts
+* Crypto
+   * Get Cryptocurrency data
+            * Current Price
+            * Historical Data
+      * See all posts about certain crypto

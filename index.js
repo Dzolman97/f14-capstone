@@ -1,9 +1,16 @@
-const express = require('express')
-const path = require('path')
+const express = require('express');
+const path = require('path');
+const app = express();
+const dotenv = require("dotenv");
+const cors = require('cors')
+const {seed} = require('./seed.js')
 
-const app = express()
 
-app.use(express.json())
+app.use(express.json());
+app.use(cors())
+dotenv.config();
+
+app.post('/seed', seed)
 
 app.get('styles.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/styles.css'))

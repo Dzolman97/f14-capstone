@@ -21,7 +21,7 @@ module.exports = {
 
       create table cc_users (
          user_id SERIAL PRIMARY KEY,
-         phone_num  VARCHAR(10)
+         phone_num  VARCHAR(10),
          full_name VARCHAR(300),
          user_name VARCHAR(100),
          password VARCHAR(1000)
@@ -30,7 +30,10 @@ module.exports = {
          insert into cc_users (phone_num, full_name, user_name, password)
          values ('1234567891', 'Daniel Zolman', 'DZolman97', 'Dwzphzmi6'),
          ('1234567891', 'Tester McTesting', 'Test1', 'testing123');
-         
-      `)
+
+      `).then(() => {
+         console.log('DB seeded!')
+         res.sendStatus(200)
+      }).catch(err => console.log('error seeding DB', err))
    }
 }

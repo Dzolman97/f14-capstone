@@ -20,5 +20,13 @@ app.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
+app.get('/dashboard.css', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/dashboard.css'))
+});
+
+app.get('/dashboard', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/dashboard.html'))
+})
+
 const port = process.env.PORT || 4004
 app.listen(port, () => console.log(`We're going to the year ${port} Marty McFly!`))

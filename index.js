@@ -12,7 +12,7 @@ dotenv.config();
 
 app.post('/seed', seed)
 
-app.get('styles.css', (req, res) => {
+app.get('/styles.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/styles.css'))
 });
 

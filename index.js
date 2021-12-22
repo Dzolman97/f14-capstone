@@ -36,5 +36,29 @@ app.get('/create-acct', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/create-acct.html'))
 })
 
+app.get('/feed-news.css', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/feed-news.css'))
+});
+
+app.get('/news', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/feed-news.html'))
+})
+
+app.get('/currencies.css', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/currencies.css'))
+});
+
+app.get('/market-list', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/currencies.html'))
+})
+
+app.get('/user-profile.css', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/user-profile.css'))
+});
+
+app.get('/profile', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/user-profile.html'))
+})
+
 const port = process.env.PORT || 4004
 app.listen(port, () => console.log(`We're going to the year ${port} Marty McFly!`))

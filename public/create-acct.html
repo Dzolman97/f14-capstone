@@ -8,22 +8,30 @@
    <link rel="stylesheet" href="create-acct.css">
 </head>
 <body>
-   <h1>Create Account page</h1>
+   <h1>Create Account</h1>
 
    <div>
-      <form>
-         <input type="text" placeholder="Phone Number">
-         <input type="text" placeholder="Full Name">
-         <input type="text" placeholder="Username">
-         <input type="text" placeholder="Password">
-
-         <button id="sign-up">Sign Up</button>
+      <form action="/create-acct" method="POST">
+         <div>
+            <input id="phoneNum" type="text" placeholder="Phone Number" required>
+         </div>
+         <div>
+            <input id="name" type="text" placeholder="Full Name" required>
+         </div>
+         <div>
+            <input id="userName" type="text" placeholder="Username" required>
+         </div>
+         <div>
+            <input id="password" type="password" placeholder="Password" required>
+         </div>
+         <div>
+            <input id="password2" type="password" placeholder="Confirm Password" required>
+         </div>
+         <div>
+            <input type="submit" value="Create">
+         </div>
+         <a href="/">Already have an account? Login here</a>
       </form>
-
-      <section>
-         <h5>Have an Account?</h5>
-         <button>Login</button>
-      </section>
    </div>
 </body>
 </html>

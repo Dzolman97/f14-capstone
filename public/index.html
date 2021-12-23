@@ -10,13 +10,20 @@
 <body>
    <h1>Crypto Current</h1>
 
-   <form id="login">
-      <input type="text" placeholder="Username">
-      <input type="text" placeholder="Password">
-      <button>Login</button>
+   <form id="login" action="/user/login" method="POST">
+      <div>
+         <input id="userName" type="text" placeholder="Username" required>
+      </div>
+      <div>
+         <input id="password" type="password" placeholder="Password" required>
+      </div>
+      <div>
+         <input type="submit" value="Login">
+      </div>
+      <div>
+         <a href="/create-acct">Create new account</a>
+      </div>
    </form>
-   <button>Forgot Password?</button>
-   <button id="createUser">Create an Account</button>
    
 </body>
 </html>

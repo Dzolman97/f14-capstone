@@ -8,20 +8,25 @@
    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <h1>Crypto Current</h1>
 
-   <form id="login" action="/user/login" method="POST">
-      <div>
-         <input id="userName" type="text" placeholder="Username" required>
-      </div>
-      <div>
-         <input id="password" type="password" placeholder="Password" required>
-      </div>
-      <div>
-         <input type="submit" value="Login">
-      </div>
-      <div>
-         <a href="/create-acct">Create new account</a>
+   <div class="title">
+      <h1>Crypto Current</h1>
+   </div>
+
+   <form id="login" action="/user/login" method="POST" class="login">
+      <div class="card">
+         <div class="userText">
+            <input id="userName" type="text" placeholder="Username" required class="textbox">
+         </div>
+         <div class="userPass">
+            <input id="password" type="password" placeholder="Password" required class="textbox">
+         </div>
+         <div class="login">
+            <input type="submit" value="Login">
+         </div>
+         <div class="creatNew">
+            <a href="/create-acct">Create new account</a>
+         </div>
       </div>
    </form>
    

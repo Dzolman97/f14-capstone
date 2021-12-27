@@ -10,7 +10,7 @@ const {createUSer} = require('./models/user.js')
 
 
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false }));
 app.use(cors());
 // app.use("/api/user", userRoute);
 // app.use("/api/auth", authRoute);
@@ -44,7 +44,7 @@ app.get('/create-acct', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/create-acct.html'))
 });
 
-app.post('/users/create-acct', (req, res) => {
+app.post('/create-acct', (req, res) => {
    let { phone_num, full_name, user_name, password, password2 } = req.body;
 
    console.log({
@@ -54,7 +54,7 @@ app.post('/users/create-acct', (req, res) => {
       password,
       password2
    });
-})
+});
 
 app.get('/feed-news.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/feed-news.css'))

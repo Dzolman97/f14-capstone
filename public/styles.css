@@ -1,3 +1,51 @@
 body {
-   background-color: aqua;
+   background-color: #2E3239;
+}
+
+h1 {
+   color: #00CDE8;
+   text-align: center;
+}
+
+.login {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* background-color: aqua; */
+}
+
+.card {
+   display: flexbox;
+   justify-content: center;
+   align-items: center;
+   background-color: #00CDE8;
+   height: 466px;
+   width: 974px;
+   padding-top: 25px;
+}
+
+.userText {
+   text-align: center;
+   padding: 35px;
+}
+
+.userPass {
+   text-align: center;
+   padding: 10px;
+}
+
+.login {
+   text-align: center;
+}
+
+.createNew {
+   text-align: center;
+}
+
+.textbox {
+   width: 370px;
+   height: 25px;
+   border-radius: 7px;
+   background-color: rgb(255, 255, 255);
+   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.582);
 }

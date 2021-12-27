@@ -8,29 +8,34 @@
    <link rel="stylesheet" href="create-acct.css">
 </head>
 <body>
-   <h1>Create Account</h1>
+   <div class="header">
+      <h1>Create Account</h1>
+   </div>
+
 
    <div>
-      <form action="/create-acct" method="POST">
-         <div>
-            <input id="phoneNum" type="text" placeholder="Phone Number" required>
+      <form id="createAcct" action="/create-acct" method="POST">
+         <div class="card">
+            <div>
+               <input id="phoneNum" type="text" placeholder="Phone Number" required class="textbox">
+            </div>
+            <div>
+               <input id="name" type="text" placeholder="Full Name" required class="textbox">
+            </div>
+            <div>
+               <input id="userName" type="text" placeholder="Username" required class="textbox">
+            </div>
+            <div>
+               <input id="password" type="password" placeholder="Password" required class="textbox">
+            </div>
+            <div>
+               <input id="password2" type="password" placeholder="Confirm Password" required class="textbox">
+            </div>
+            <div>
+               <input id="createAcct" type="submit" value="Create">
+            </div>
+            <a href="/">Already have an account? Login here</a>
          </div>
-         <div>
-            <input id="name" type="text" placeholder="Full Name" required>
-         </div>
-         <div>
-            <input id="userName" type="text" placeholder="Username" required>
-         </div>
-         <div>
-            <input id="password" type="password" placeholder="Password" required>
-         </div>
-         <div>
-            <input id="password2" type="password" placeholder="Confirm Password" required>
-         </div>
-         <div>
-            <input type="submit" value="Create">
-         </div>
-         <a href="/">Already have an account? Login here</a>
       </form>
    </div>
 </body>

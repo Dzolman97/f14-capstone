@@ -32,3 +32,36 @@ body {
    padding-top: 25px;
 }
 
+.phoneNum {
+   text-align: center;
+   padding: 22px;
+}
+
+.name {
+   text-align: center;
+   padding: 22px;
+}
+
+.userName {
+   text-align: center;
+   padding: 22px;
+}
+
+.password {
+   text-align: center;
+   padding: 22px;
+}
+
+.password2 {
+   text-align: center;
+   padding: 22px;
+}
+
+.createBTN {
+   text-align: center;
+   padding: 22px;
+}
+
+.linkLogin {
+   text-align: center;
+}

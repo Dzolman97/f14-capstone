@@ -14,27 +14,29 @@
 
 
    <div>
-      <form id="createAcct" action="/create-acct" method="POST">
+      <form id="createAcct" action="/create-acct" method="POST" class="createAcct">
          <div class="card">
-            <div>
+            <div class="phoneNum">
                <input id="phoneNum" type="text" placeholder="Phone Number" required class="textbox">
             </div>
-            <div>
+            <div class="name">
                <input id="name" type="text" placeholder="Full Name" required class="textbox">
             </div>
-            <div>
+            <div class="userName">
                <input id="userName" type="text" placeholder="Username" required class="textbox">
             </div>
-            <div>
+            <div class="password">
                <input id="password" type="password" placeholder="Password" required class="textbox">
             </div>
-            <div>
+            <div class="password2">
                <input id="password2" type="password" placeholder="Confirm Password" required class="textbox">
             </div>
-            <div>
+            <div class="createBTN">
                <input id="createAcct" type="submit" value="Create">
             </div>
-            <a href="/">Already have an account? Login here</a>
+            <div class="linkLogin">
+               <a href="/">Already have an account? Login here</a>
+            </div>
          </div>
       </form>
    </div>

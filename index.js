@@ -46,7 +46,7 @@ app.get('/create-acct', (req, res) => {
 
 app.post('/create-acct', (req, res) => {
    let { phone_num, full_name, user_name, password, password2 } = req.body;
-
+   console.log(req.body)
    console.log({
       phone_num,
       full_name,
@@ -54,6 +54,8 @@ app.post('/create-acct', (req, res) => {
       password,
       password2
    });
+
+   let errors = [];
 });
 
 app.get('/feed-news.css', (req, res) => {

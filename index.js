@@ -7,6 +7,7 @@ const {seed} = require('./seed.js')
 const {userQuery} = require('./seed.js')
 const {createUSer} = require('./models/user.js')
 const bcrypt = require("bcrypt")
+const {pool} = require("./dbConfig.js")
 // const userRoute = require("./routes/users.js");
 // const authRoute = require("./routes/auth.js");
 
@@ -79,8 +80,18 @@ app.post('/create-acct', async(req, res) => {
       let hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
 
-      userQuery
-      
+      pool.query(
+         `SELECT * FROM cc_users 
+         WHERE phone = $1`, 
+         [phone_num],
+         (err, results) => {
+            if (err) {
+               throw err;
+            }
+            console.log("reaches here")
+            console.log(results.rows)
+         }
+      );
    }
 });
 

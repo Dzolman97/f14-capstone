@@ -36,16 +36,4 @@ module.exports = {
       }).catch(err => console.log('error seeding DB', err))
    },
 
-   userQuery: (req, res) => {
-      sequelize.query(`
-      SELECT * FROM cc_users
-      WHERE phone_num = ${[phone_num], (err, results)=>{
-         if (err){
-            throw err
-         }
-         console.log("reches here");
-         console.log(results.rows);
-      }}
-      `)
-   }
 }

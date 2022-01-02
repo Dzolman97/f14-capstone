@@ -4,7 +4,9 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require('cors')
 const {seed} = require('./seed.js')
+const {userQuery} = require('./seed.js')
 const {createUSer} = require('./models/user.js')
+const bcrypt = require("bcrypt")
 // const userRoute = require("./routes/users.js");
 // const authRoute = require("./routes/auth.js");
 
@@ -44,7 +46,7 @@ app.get('/create-acct', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/create-acct.html'))
 });
 
-app.post('/create-acct', (req, res) => {
+app.post('/create-acct', async(req, res) => {
    let { phone_num, full_name, user_name, password, password2 } = req.body;
    console.log(req.body)
    console.log({
@@ -56,6 +58,30 @@ app.post('/create-acct', (req, res) => {
    });
 
    let errors = [];
+
+   if(!phone_num || !full_name || !user_name || !password || !password2){
+      errors.push('Please enter ALL fields.');
+   }
+
+   if(password.length < 6) {
+      errors.push("Password should be at least 6 characters long.");
+   }
+
+   if(password !== password2){
+      errors.push("Passwords do not match!");
+   }
+
+   if(errors.length > 0){
+      res.status(500).send(errors);
+   }else{
+      // Form Validation Passed
+
+      let hashedPassword = await bcrypt.hash(password, 10);
+      console.log(hashedPassword);
+
+      userQuery
+      
+   }
 });
 
 app.get('/feed-news.css', (req, res) => {

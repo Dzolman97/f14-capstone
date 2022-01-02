@@ -39,11 +39,12 @@ module.exports = {
    userQuery: (req, res) => {
       sequelize.query(`
       SELECT * FROM cc_users
-      WHERE phone_num = $1, ${[phone_num], (err, results)=>{
+      WHERE phone_num = ${[phone_num], (err, results)=>{
          if (err){
             throw err
          }
-         console.log(results.rows)
+         console.log("reches here");
+         console.log(results.rows);
       }}
       `)
    }

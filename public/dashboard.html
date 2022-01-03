@@ -4,12 +4,40 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Dashboard</title>
+   <title>Dashboard Home</title>
    <link rel="stylesheet" href="dashboard.css">
+   <script src="https://kit.fontawesome.com/14653e936a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <h1>Dashboard</h1>
-
-   <a href="/users/logout">Logout</a>
+   <div class="wrapper">
+      <div class="sidebar">
+         <h2>Dashboard</h2>
+         <ul>
+            <li>
+               <a href="/profile"><i class="far fa-user">Profile</i></a>
+            </li>
+            <li>
+               <a href="/dashboard"><i class="fas fa-home">Home</i></a>
+            </li>
+            <li>
+               <a href="/market-list"><i class="fab fa-bitcoin">Currencies</i></a>
+            </li>
+            <li>
+               <a href="/news"><i class="fas fa-newspaper">News</i></a>
+            </li>
+         </ul>
+      </div>
+      <div class="main-content">
+         <div class="header"><input class="search" type="text" placeholder="Search"></div>
+         <div class="info">
+            <div class="watchlist"><h2>Watchlist</h2>
+               <div>Card1</div>
+            </div>
+            <div class="portfolio">Portfolio
+               <div>Card1</div>
+            </div>
+         </div>
+      </div>
+   </div>
 </body>
 </html>

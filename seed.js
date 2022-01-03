@@ -28,7 +28,7 @@ module.exports = {
       );
 
          INSERT INTO cc_users(phone_num, full_name, user_name, password)
-         VALUES ('1234567891', 'Daniel Zolman', 'DZolman97', 'Dwzphzmi6');
+         VALUES ('1234567891', 'Daniel Zolman', 'DZolman97', 'Password');
 
       `).then(() => {
          console.log('DB seeded!')

@@ -7,16 +7,22 @@ const {seed} = require('./seed.js')
 const {userQuery} = require('./seed.js')
 const {createUSer} = require('./models/user.js')
 const bcrypt = require("bcrypt")
-const {pool} = require("./dbConfig.js")
-// const userRoute = require("./routes/users.js");
-// const authRoute = require("./routes/auth.js");
+const {DATABASE_URL} = process.env
 
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize(DATABASE_URL, {
+   dialect: 'postgres',
+   dialectOptions: {
+      ssl: {
+         rejectUnauthorized: false
+      }
+   }
+});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false }));
 app.use(cors());
-// app.use("/api/user", userRoute);
-// app.use("/api/auth", authRoute);
 dotenv.config();
 
 app.post('/seed', seed);
@@ -29,6 +35,37 @@ app.get('/styles.css', (req, res) => {
 
 app.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/index.html'))
+});
+
+app.post('/user/login', (req, res) => {
+   let user_name = req.body.user_name
+   let password = req.body.password
+
+   const authenticateUser = (user_name, password) => {
+      sequelize.query(
+         `SELECT * FROM cc_users WHERE user_name = '${user_name}'`,
+         {type: sequelize.QueryTypes.SELECT}
+      ).then((result) => {
+         console.log("this is the result", result)
+         if(result.length > 0){
+            const user = result[0]
+
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+               if(err){
+                  throw err
+               }
+               if(isMatch){
+                  console.log("user authenticated")
+                  res.redirect('/dashboard')
+               }else{
+                  console.log("Wrong Password")
+               }
+            })
+         }
+      })
+   }
+
+   authenticateUser(user_name, password)
 });
 
 app.get('/dashboard.css', (req, res) => {
@@ -58,10 +95,14 @@ app.post('/create-acct', async(req, res) => {
       password2
    });
 
-   let errors = [];
+   const errors = [];
 
    if(!phone_num || !full_name || !user_name || !password || !password2){
       errors.push('Please enter ALL fields.');
+   }
+
+   if(phone_num.length < 10) {
+      errors.push("Phine Number needs to be 10 digits")
    }
 
    if(password.length < 6) {
@@ -80,18 +121,15 @@ app.post('/create-acct', async(req, res) => {
       let hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
 
-      pool.query(
-         `SELECT * FROM cc_users 
-         WHERE phone = $1`, 
-         [phone_num],
-         (err, results) => {
-            if (err) {
-               throw err;
-            }
-            console.log("reaches here")
-            console.log(results.rows)
-         }
-      );
+      
+      sequelize
+         .query(
+            `INSERT INTO cc_users(phone_num, full_name, user_name, password)
+            VALUES ('${phone_num}', '${full_name}', '${user_name}', '${hashedPassword}')`
+         ).then(() => {
+            console.log("User Insterted")
+            res.redirect("/dashboard")
+         }).catch(err => console.log('error inserting user date', err))
    }
 });
 
@@ -118,6 +156,11 @@ app.get('/user-profile.css', (req, res) => {
 app.get('/profile', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/user-profile.html'))
 });
+
+app.get('/users/logout', (req, res) => {
+   // res.sendFile(path.join(__dirname, '/public/index.html'))
+   res.redirect("/")
+})
 
 const port = process.env.PORT || 4004;
 app.listen(port, () => console.log(`We're going to the year ${port} Marty McFly!`));

@@ -68,12 +68,50 @@ body {
 
 .wrapper .main-content .info{
    height: 100%;
-   color: #2E3239;
+   color: #00CDE8;
 }
 
 
 .wrapper .main-content .info .watchlist h2{
-   margin: 25px;
-   margin-left: 35px;
-   background: coral;
+   margin-left: 50px;
+   margin-bottom: 15px;
+   background: #2E3239;
+   width: 250px;
+   text-align: center;
 }
+
+.wrapper .main-content .info .watchlist .container{
+   display: flex;
+   margin-left: 40px;
+}
+
+.wrapper .main-content .info .watchlist .container .card{
+  background: #2E3239; 
+  width: 220px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.wrapper .main-content .info .portfolio h2{
+   margin-left: 50px;
+   margin-top: 35px;
+   margin-bottom: 20px;
+   background: #2E3239;
+   width: 250px;
+   text-align: center;
+}
+
+.wrapper .main-content .info .portfolio .container{
+   display: flex;
+   margin-left: 40px;
+}
+
+.wrapper .main-content .info .portfolio .container .card{
+   background: #2E3239; 
+   width: 220px;
+   height: 300px;
+   margin: 10px;
+   border-radius: 10px;
+ }
+ 

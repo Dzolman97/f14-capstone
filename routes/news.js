@@ -13,7 +13,7 @@ const axiosOptions = {
 
 const details = async (req, res) => {
    const newsResponse = await axios.get(config.newsURL(req.query.newsApi), axiosOptions);
-   return res.status(200).json(newsResponse.data.results)
+   return res.status(200).json(newsResponse.data)
 }
 
 module.exports = {

@@ -59,3 +59,14 @@ body {
    margin: 25px;
    margin-left: 40%;
 }
+
+.wrapper .main-content .container{
+   display: flex;
+   flex-direction: column;
+   margin-left: 50px;
+   padding: 55px;
+}
+
+.wrapper .main-content .container .line{
+   background-color: #2E3239;
+}

@@ -5,9 +5,10 @@ const dotenv = require("dotenv");
 const cors = require('cors')
 const {seed} = require('./seed.js')
 const {userQuery} = require('./seed.js')
-const {createUSer} = require('./models/user.js')
 const bcrypt = require("bcrypt")
 const {DATABASE_URL} = process.env
+const userRoute = require("./routes/users.js")
+const newsRouter = require("./routes/news.js")
 
 const Sequelize = require('sequelize');
 
@@ -23,6 +24,8 @@ const sequelize = new Sequelize(DATABASE_URL, {
 app.use(express.json());
 app.use(express.urlencoded({extended: false }));
 app.use(cors());
+app.use("/profile/api/user", userRoute)
+app.use("/news/api/feed", newsRouter.details)
 dotenv.config();
 
 app.post('/seed', seed);
@@ -140,6 +143,8 @@ app.get('/feed-news.css', (req, res) => {
 app.get('/news', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/feed-news.html'))
 });
+
+app.get('/news/api/feed', newsRouter.details);
 
 app.get('/currencies.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/currencies.css'))

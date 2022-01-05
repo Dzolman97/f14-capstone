@@ -143,6 +143,10 @@ app.get('/feed-news.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/feed-news.css'))
 });
 
+app.get('/main.js', (req, res) => {
+   res.sendFile(path.join(__dirname, '/public/main.js'))
+})
+
 app.get('/news', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/feed-news.html'))
 });

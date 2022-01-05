@@ -1,13 +1,15 @@
 const router = require("express").Router();
+const axios = require('axios');
 const dotenv = require("dotenv");
 dotenv.config();
 const rp = require('request-promise');
 
-const requestOptions1 = {
+const requestOptions = {
   method: 'GET',
-  uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest',
+  uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
   qs: {
-    'symbol': 'BTC',
+    'start': '1',
+    'limit': '1000',
     'convert': 'USD'
   },
   headers: {
@@ -17,14 +19,17 @@ const requestOptions1 = {
   gzip: true
 };
 
-const requestOptions = () => {
-   rp(requestOptions1).then(response => {
-   return response.status(200).json('API call response:', response);
-   }).catch((err) => {
-   return('API call error:', err.message);
-   });
-}
 
 module.exports = {
-   requestOptions
+  details: (req, res) => {
+    rp(requestOptions).then(response => {
+      return ('API call response:', response);
+    }).then(() => {
+      console.log("recieved latest info")
+      res.sendStatus(200).send(response)
+    }).catch((err) => {
+      return ('API call error:', err.message)
+    })
+  },
+
 }

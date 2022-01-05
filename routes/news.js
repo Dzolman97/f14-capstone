@@ -12,8 +12,8 @@ const axiosOptions = {
 
 const details = async (req, res) => {
    const newsResponse = await axios.get(config.newsURL(req.query.newsApi), axiosOptions);
-   console.log(newsResponse.data.results[0])
-   return res.status(200).json(newsResponse.data.results[0])
+   // console.log(newsResponse.data.results[0])
+   return res.status(200).send(newsResponse.data.results)
 }
 
 module.exports = {

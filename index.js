@@ -7,6 +7,7 @@ const {seed} = require('./seed.js')
 const {userQuery} = require('./seed.js')
 const bcrypt = require("bcrypt")
 const {DATABASE_URL} = process.env
+const router = require("express").Router();
 const userRoute = require("./routes/users.js")
 const newsRouter = require("./routes/news.js")
 const currencyRouter = require("./routes/coinmarketcap.js")
@@ -28,7 +29,7 @@ app.use(express.urlencoded({extended: false }));
 app.use(cors());
 app.use("/profile/api/user", userRoute)
 app.use("/news/api/feed", newsRouter.details)
-// app.use("/market-list", currencyRouter.requestOptions)
+app.use("/market-list/api/latest", currencyRouter.details)
 dotenv.config();
 
 app.post('/seed', seed);
@@ -154,7 +155,7 @@ app.get('/news', (req, res) => {
 app.get('/news/api/feed', (req, res)=> {
    const json = `${newsRouter.details}`
    let obj = JSON.parse(json)
-   let title = obj.results.title
+   let title = obj.results
    res.send(title)
 })
 
@@ -166,8 +167,10 @@ app.get('/market-list', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/currencies.html'))
 });
 
-// app.get('/market-list', (req, res) => {
-//    res.send(currencyRouter.requestOptions)
+// app.get('/market-list/api/latest', (req, res) => {
+//    const json = `${currencyRouter.details}`
+//    let obj = JSON.parse(json)
+//    let res = obj.
 // });
 
 app.get('/user-profile.css', (req, res) => {

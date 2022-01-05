@@ -68,5 +68,10 @@ body {
 }
 
 .wrapper .main-content .container .line{
-   background-color: #2E3239;
+   /* background-color: #2E3239; */
+   margin: 3px;
+}
+
+.wrapper .main-content .container .line h3 a{
+   color: #00CDE8;
 }

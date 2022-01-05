@@ -9,7 +9,7 @@ const requestOptions = {
   uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
   qs: {
     'start': '1',
-    'limit': '1000',
+    'limit': '100',
     'convert': 'USD'
   },
   headers: {
@@ -19,17 +19,41 @@ const requestOptions = {
   gzip: true
 };
 
+const details = async (req, res) => {
+  const coindata = await rp(requestOptions).then((response) => {
+    return response.data
+  });
+
+  return res.status(200).send(coindata)
+}
+
+const requestQuotes = {
+  method: 'GET',
+  uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest',
+  qs: {
+    'start': '1',
+    'limit': '100',
+    'convert': 'USD'
+  },
+  headers: {
+    'X-CMC_PRO_API_KEY': `${process.env.COINAPI}`
+  },
+  json: true,
+  gzip: true
+};
+
+const quoteDetails = async (req, res) => {
+  const quotedata = await rp(requestQuotes).then((response) => {
+    return response.data
+  });
+
+  return res.status(200).send(quotedata)
+}
+
 
 module.exports = {
-  details: (req, res) => {
-    rp(requestOptions).then(response => {
-      return ('API call response:', response);
-    }).then(() => {
-      console.log("recieved latest info")
-      res.sendStatus(200).send(response)
-    }).catch((err) => {
-      return ('API call error:', err.message)
-    })
-  },
+
+  details,
+  quoteDetails
 
 }

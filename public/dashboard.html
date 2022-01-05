@@ -7,6 +7,7 @@
    <title>Dashboard Home</title>
    <link rel="stylesheet" href="dashboard.css">
    <script src="https://kit.fontawesome.com/14653e936a.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src="./main.js" defer></script>
 </head>
 <body>
@@ -21,7 +22,7 @@
                <a href="/dashboard"><i class="fas fa-home">Home</i></a>
             </li>
             <li>
-               <a href="/market-list"><i class="fab fa-bitcoin">Currencies</i></a>
+               <a href="/market-list"><i class="fab fa-bitcoin" id="latestList">Currencies</i></a>
             </li>
             <li>
                <a href="/news"><i class="fas fa-newspaper" id="news">News</i></a>
@@ -35,17 +36,13 @@
          <div class="header"><input class="search" type="text" placeholder="Search"></div>
          <div class="info">
             <div class="watchlist"><h2>Watchlist</h2>
-               <section class="container">
-                  <div class="card">
-                     <div class="card-img"></div>
-                     <h4>Title</h4>
-                     <p>Text</p>
-                  </div>
-                  <div class="card">
-                     <div class="card-img"></div>
-                     <h4>Title</h4>
-                     <p>Text</p>
-                  </div>
+               <section class="card-container">
+                  <form id="addCurrency-Watchlist" class="card">
+                     <div class="text">
+                        <input type="text" id="currency-name" placeholder="Currency Name" required>
+                        <button id="addtolist">Add</button>
+                     </div>
+                  </form>
                   <div class="card">
                      <div class="card-img"></div>
                      <h4>Title</h4>
@@ -54,7 +51,7 @@
                </section>
             </div>
             <div class="portfolio"><h2>Portfolio</h2>
-               <section class="container">
+               <section class="card-container">
                   <div class="card">
                      <div class="card-img"></div>
                      <h4>Title</h4>

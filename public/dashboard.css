@@ -80,12 +80,12 @@ body {
    text-align: center;
 }
 
-.wrapper .main-content .info .watchlist .container{
+.wrapper .main-content .info .watchlist .card-container{
    display: flex;
    margin-left: 40px;
 }
 
-.wrapper .main-content .info .watchlist .container .card{
+.wrapper .main-content .info .watchlist .card-container .card{
   background: #2E3239; 
   width: 220px;
   height: 300px;
@@ -102,12 +102,12 @@ body {
    text-align: center;
 }
 
-.wrapper .main-content .info .portfolio .container{
+.wrapper .main-content .info .portfolio .card-container{
    display: flex;
    margin-left: 40px;
 }
 
-.wrapper .main-content .info .portfolio .container .card{
+.wrapper .main-content .info .portfolio .card-container .card{
    background: #2E3239; 
    width: 220px;
    height: 300px;

@@ -30,6 +30,7 @@ app.use(cors());
 app.use("/profile/api/user", userRoute)
 app.use("/news/api/feed", newsRouter.details)
 app.use("/market-list/api/latest", currencyRouter.details)
+app.use("/market-list/api/latest/quotes", currencyRouter.quoteDetails)
 dotenv.config();
 
 app.post('/seed', seed);
@@ -93,14 +94,6 @@ app.get('/create-acct', (req, res) => {
 
 app.post('/create-acct', async(req, res) => {
    let { phone_num, full_name, user_name, password, password2 } = req.body;
-   console.log(req.body)
-   console.log({
-      phone_num,
-      full_name,
-      user_name,
-      password,
-      password2
-   });
 
    const errors = [];
 
@@ -124,10 +117,8 @@ app.post('/create-acct', async(req, res) => {
       res.status(500).send(errors);
    }else{
       // Form Validation Passed
-
       let hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
-
       
       sequelize
          .query(
@@ -152,13 +143,6 @@ app.get('/news', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/feed-news.html'))
 });
 
-app.get('/news/api/feed', (req, res)=> {
-   const json = `${newsRouter.details}`
-   let obj = JSON.parse(json)
-   let title = obj.results
-   res.send(title)
-})
-
 app.get('/currencies.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/currencies.css'))
 });
@@ -167,11 +151,9 @@ app.get('/market-list', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/currencies.html'))
 });
 
-// app.get('/market-list/api/latest', (req, res) => {
-//    const json = `${currencyRouter.details}`
-//    let obj = JSON.parse(json)
-//    let res = obj.
-// });
+app.put('/market-list/api/latest/quotes', (req, res) => {
+
+})
 
 app.get('/user-profile.css', (req, res) => {
    res.sendFile(path.join(__dirname, '/public/user-profile.css'))

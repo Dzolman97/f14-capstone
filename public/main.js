@@ -69,22 +69,3 @@ axios.get('http://localhost:4004/market-list/api/latest')
    .then(displayLatestCoin);
 //
 
-
-
-
-
-const wantedCoin = (e) => {
-   e.preventDefault();
-   let coin = document.getElementById('currency-name')
-
-   return coin.value
-}
-const addtolist = document.getElementById('addtolist')
-const displayWantedCoin = (response) => {
-   console.log(response.data.filter((ele) => ele.name))
-}
-
-axios.put('http://localhost:4004/market-list/api/latest/quote')
-   .then(displayWantedCoin);
-
-addtolist.addEventListener('click', wantedCoin)

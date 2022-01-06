@@ -91,9 +91,57 @@ axios.get('http://localhost:4004/market-list/api/latest')
 
 
 
+// const addtolistForm = document.getElementById('addCurrency-Watchlist')
+
+// addtolistForm.addEventListener('submit', newCoinCardHandler)
+
+// const wantedCoin = document.getElementById('currency-name')
+
+// const addCoinCard = (response) => {
+//    return response.data.filter((ele, index) => index < 100)
+//       .map(ele => {
+//          let searchedFor = wantedCoin
+//          if(ele.name === searchedFor){
+            
+//          }
+//       })
+// }
+
+// console.log(addCoinCard)
+
+// axios.get('http://localhost:4004/market-list/api/latest')
+//    .then(addCoinCard)
+// // function newCoinCardHandler(e){
+// //    e.preventdefault();
+// //    let wantedCoin = document.getElementById('currency-name')
+
+// //    let wantedCoinObj = {
+// //       name: wantedCoin.value,
+// //    }
+
+// //    addNewCoinCard(wantedCoinObj)
+
+   
+// // }
+
+// // const addNewCoinCard = 
 
 
 
 
 
 
+// // const wantedCoin = (e) => {
+// //    e.preventDefault();
+// //    let coin = document.getElementById('currency-name')
+
+// //    return coin.value
+// // }
+// // const displayWantedCoin = (response) => {
+// //    console.log(response.data.filter((ele) => ele.name))
+// // }
+
+// // axios.put('http://localhost:4004/market-list/api/latest/quote')
+// //    .then(displayWantedCoin);
+
+// // addtolist.addEventListener('click', wantedCoin)

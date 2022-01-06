@@ -61,21 +61,29 @@ body {
    margin-left: 35%;
 }
 
+
+
+
+/* grid to show titles of each grid below */
 .wrapper .main-content .container{
    display: flex;
-   flex-direction: row;
+   /* flex-direction: row; */
    margin-left: 1%;
    background-color: #2c2c2c;
    width: 99%;
    height: 40px;
 }
 
-.wrapper .main-content .container .num{
-   margin-left: 5px;
-   margin-top: 5px;
+.wrapper .main-content .container > * {
+   flex-basis: 100%;
+   text-align: center;
 }
 
-.wrapper .main-content .container .name{
+/* .wrapper .main-content .container .num{
+   margin-right: 5px;
+}
+
+/* .wrapper .main-content .container .name{
    margin-left: 7%;
    margin-top: 4px;
 }
@@ -98,46 +106,49 @@ body {
 .wrapper .main-content .container .vol{
    margin-left: 15%;
    margin-top: 4px;
-}
+} */
 
+
+/* Grid to show coin data */
 .wrapper .main-content .coinData{
    display: flex;
-   flex-direction: row;
+   /* flex-direction: row; */
    /* margin-left: 1%; */
    margin-top: 1%;
    background-color: #2c2c2c;
    width: 99%;
 }
 
+.wrapper .main-content .coinData > * {
+   flex-basis: 100%;
+   text-align: center;
+}
+
+
 .wrapper .main-content .coinData .num{
-   margin-left: 5px;
-   margin-top: 5px;
+
 }
 
 .wrapper .main-content .coinData .name{
-   margin-left: 2%;
-   margin-top: 4px;
+
 }
 
 .wrapper .main-content .coinData .day{
-   margin-left: 6%;
-   margin-top: 4px;
-   color: rgb(2, 255, 2);
+   color: #00A349;
+}
+
+.wrapper .main-content .coinData .price{
+   color: #00A349;
 }
 
 .wrapper .main-content .coinData .week{
-   margin-left: 5%;
-   margin-top: 4px;
-   color: rgb(2, 255, 2);
+   color: #00A349;
 }
 
 .wrapper .main-content .coinData .mcap{
-   margin-left: 13%;
-   margin-top: 4px;
-   color: rgb(0, 81, 156)
+   color: #00A349;
 }
 
 .wrapper .main-content .coinData .vol{
-   margin-left: 13%;
-   margin-top: 4px;
+   color: #00A349;
 }

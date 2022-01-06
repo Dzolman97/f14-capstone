@@ -11,11 +11,21 @@ const displayNewsCallback = (response) => {
          title.href = ele.url
          title.target = "_blank"
          let bigTitle = document.createElement('h3')
+         let source = document.createElement('p')
+         source.innerHTML = `Source: ${ele.source.domain}`
+         let coinsAttributed = document.createElement('p')
+         coinsAttributed.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+
+   
+         newDiv.appendChild(source)
          newDiv.appendChild(bigTitle)
+         newDiv.appendChild(coinsAttributed)
+         
          bigTitle.appendChild(title)
+         
          newsContainer.appendChild(newDiv)
 
-         console.log(newDiv)
+         // console.log(newDiv)
       })
 }
 
@@ -37,25 +47,34 @@ const displayLatestCoin = (response) => {
          let name = document.createElement('div')
          name.classList.add('name')
          name.innerHTML = `<h3>${ele.name}</h3>`
+         let price = document.createElement('div')
+         price.classList.add('price')
+         price.innerHTML = `<h3>$ ${ele.quote.USD.price}</h3>`
          let day = document.createElement('div')
          day.classList.add('day')
          day.innerHTML = `<h3>${ele.quote.USD.percent_change_24h}</h3>`
-         if(ele.quote.USD.percent_change_24h < 0)
-            day.style.color = 'red'
          let week = document.createElement('div')
          week.classList.add('week')
          week.innerHTML = `<h3>${ele.quote.USD.percent_change_7d}</h3>`
          if(ele.quote.USD.percent_change_7d < 0)
-            week.style.color = 'red'
+            week.style.color = '#AF1308'
          let mcap = document.createElement('div')
          mcap.classList.add('mcap')
          mcap.innerHTML = `<h3>$ ${ele.quote.USD.market_cap}</h3>`
          let vol = document.createElement('div')
          vol.classList.add('vol')
-         vol.innerHTML = `<h3>${ele.quote.USD.volume_24h}</h3>`
+         vol.innerHTML = `<h3>$ ${ele.quote.USD.volume_24h}</h3>`
+
+         if(ele.quote.USD.percent_change_24h < 0){
+            day.style.color = '#AF1308'
+            price.style.color = '#AF1308'
+            mcap.style.color = '#AF1308'
+            vol.style.color = '#AF1308'
+         }
 
          newCoinData.appendChild(num)
          newCoinData.appendChild(name)
+         newCoinData.appendChild(price)
          newCoinData.appendChild(day)
          newCoinData.appendChild(week)
          newCoinData.appendChild(mcap)
@@ -68,4 +87,13 @@ const displayLatestCoin = (response) => {
 axios.get('http://localhost:4004/market-list/api/latest')
    .then(displayLatestCoin);
 //
+
+
+
+
+
+
+
+
+
 
